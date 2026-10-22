@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f54d9b">
+    <meta name="description" content="Личный кусочек розового интернета для Евы. Котики, голуби, любимая музыка и слишком много блёсток.">
+    <title>Ева, это всё тебе! ♡</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='54'%3E💖%3C/text%3E%3C/svg%3E">
+    <link rel="preload" as="image" href="images/mobile/cat3.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&amp;family=Yeseva+One&amp;display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+      <symbol id="i-prev" viewBox="0 0 24 24"><path d="M6 5v14"/><path d="m18 5-10 7 10 7z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-next" viewBox="0 0 24 24"><path d="M18 5v14"/><path d="M6 5v14l10-7z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h9"/><path d="m18 16 3 3-3 3"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4zM15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></symbol>
+    </svg>
+
+    <div class="postcard">
+      <header class="site-header">
+        <a class="wordmark" href="#home" aria-label="В начало">eva<span>.world</span> <span class="logo-star">✦</span></a>
+        <span class="online"><i></i> ты — главная</span>
+        <button class="header-music icon-button" data-open-player aria-label="Открыть музыку">♫</button>
+      </header>
+
+      <main id="home">
+        <section class="hero glitter-zone" aria-labelledby="hero-title">
+          <div class="hero-topline"><span class="tiny-heart">♥</span> ЛИЧНЫЙ УГОЛОК РОЗОВОГО ИНТЕРНЕТА</div>
+          <span class="hero-star star-one" aria-hidden="true">✧</span>
+          <span class="hero-star star-two" aria-hidden="true">✦</span>
+          <div class="edition">SPECIAL EDITION<br><b>ONLY FOR EVA</b></div>
+          <h1 id="hero-title">Ева,<br>это всё <em>тебе!</em></h1>
+          <p class="hero-caption">Ты заслуживаешь весь мир.<br>Но пока держи этот сайт и голубя.</p>
+
+          <div class="hero-collage">
+            <span class="scribble" aria-hidden="true">твой фан-клуб ↴</span>
+            <button class="photo-card hero-cat cat-interaction" aria-label="Погладить кота в очках">
+              <span class="photo-tape" aria-hidden="true"></span>
+              <img src="images/mobile/cat3.webp" width="318" height="320" alt="Невозмутимый кот в чёрных солнцезащитных очках" fetchpriority="high">
+              <span>икона. легенда. ты.</span>
+            </button>
+            <button class="pigeon-interaction hero-pigeon" aria-label="Отправить голубя в полёт">
+              <span class="pigeon-speech">я с подарком</span>
+              <img src="images/mobile/peagun2.webp" width="200" height="139" alt="Голубь — курьер любви">
+            </button>
+            <button class="draggable sticker vip-sticker" aria-label="Перетащить наклейку VIP пальцем, или нажать">100%<br><b>THAT GIRL</b><br>✦ VIP ✦</button>
+            <span class="chrome-heart" aria-hidden="true">♥</span>
+            <span class="collage-caption">одобрено котом ✓</span>
+          </div>
+
+          <button class="glossy-button fireworks-button" id="fireworks-button"><span>✦</span> СДЕЛАТЬ КРАСИВО <span>✦</span></button>
+          <p class="microcopy">нажми. голуби всё организовали.</p>
+          <a class="scroll-cue" href="#letter">листай, тут ещё кое-что <span>↓</span></a>
+        </section>
+
+        <div class="ticker" aria-hidden="true"><div>♡ TOO GLAM TO GIVE A DAMN &nbsp; ✦ &nbsp; EVA FAN CLUB &nbsp; ♡ &nbsp; КУРЛЫК, КРАСОТКА &nbsp; ✦ &nbsp; TOO GLAM TO GIVE A DAMN &nbsp; ✦ &nbsp; EVA FAN CLUB &nbsp; ♡ &nbsp; КУРЛЫК, КРАСОТКА &nbsp; ✦ &nbsp;</div></div>
+
+        <section class="letter-section glitter-zone section-space" id="letter" aria-labelledby="letter-title">
+          <div class="section-eyebrow">01 / ВХОДЯЩЕЕ СООБЩЕНИЕ</div>
+          <div class="letter-window">
+            <div class="window-bar"><span>♡ love_letter.txt</span><span aria-hidden="true">— &nbsp; □ &nbsp; ×</span></div>
+            <div class="letter-paper">
+              <span class="letter-stamp" aria-hidden="true">ДОСТАВЛЕНО<br>ГОЛУБЕМ<br>♡</span>
+              <h2 id="letter-title">Вообще-то,<br>ты чудо.</h2>
+              <p>Просто напоминаем: с тобой этот мир веселее, красивее и как минимум на 200% интереснее.</p>
+              <p>Пусть у тебя будет побольше поводов улыбаться, любимая музыка погромче и люди, с которыми можно быть собой.</p>
+              <p class="letter-signature">Обнимаем всеми лапками.<br>И немножко крыльями. ♡</p>
+              <span class="letter-doodle" aria-hidden="true">xoxo</span>
+            </div>
+          </div>
+          <div class="message-card">
+            <img src="images/mobile/nokia.webp" width="380" height="722" alt="Розовая Nokia из двухтысячных" loading="lazy">
+            <div><span class="section-eyebrow">ВАМ 1 НОВОЕ SMS</span><p id="compliment">Кто-то очень хочет<br>сказать тебе кое-что…</p><button class="small-glossy" id="compliment-button">Читать сообщение ↗</button></div>
+          </div>
+        </section>
+
+        <section class="cats-section section-space" aria-labelledby="cats-title">
+          <div class="section-eyebrow">02 / КОМИТЕТ ПО ОБОЖАНИЮ ЕВЫ</div>
+          <h2 class="section-title" id="cats-title">У нас тут<br><em>всё серьёзно.</em> <span aria-hidden="true">✧</span></h2>
+          <p class="section-description">Три эксперта. Одно мнение: ты прекрасна.<br>Погладь каждого — они на работе.</p>
+          <div class="cat-gallery">
+            <button class="cat-interaction expert-photo expert-one" aria-label="Погладить пушистого председателя">
+              <img src="images/mobile/cat.webp" width="718" height="479" alt="Серьёзный пушистый кот" loading="lazy">
+              <span><b>ПРЕДСЕДАТЕЛЬ</b><small>«Ева? Одобряю.»</small></span>
+            </button>
+            <button class="cat-interaction expert-photo expert-two" aria-label="Погладить голубоглазого эксперта">
+              <img src="images/mobile/cat2.webp" width="460" height="379" alt="Кот с огромными голубыми глазами" loading="lazy">
+              <span><b>ОТДЕЛ ВОСХИЩЕНИЯ</b><small>«Это всё ей?!»</small></span>
+            </button>
+            <span class="gallery-heart" aria-hidden="true">♡</span>
+            <button class="draggable sticker love-sticker" aria-label="Перетащить сердечко пальцем, или нажать">love<br><i>you!</i></button>
+          </div>
+          <div class="pet-counter"><span>♡</span> Уровень обожания: <b id="pet-count">бесконечный</b></div>
+        </section>
+
+        <section class="music-section section-space glitter-zone" aria-labelledby="music-title">
+          <div class="section-eyebrow">03 / САУНДТРЕК ГЛАВНОЙ ГЕРОИНИ</div>
+          <h2 class="section-title" id="music-title">Хороший вкус.<br><em>Громкий звук.</em></h2>
+          <div class="cassette" aria-hidden="true"><div class="cassette-top">EVA'S MIXTAPE <span>SIDE ♡</span></div><div class="cassette-label"><span>для тебя, на репите</span><div class="tape-reels"><i></i><div></div><i></i></div></div><div class="cassette-bottom">STEREO &nbsp; ✦ &nbsp; 100% FEELINGS <b>♥</b></div></div>
+          <p class="section-description">Розовый Winamp повзрослел.<br>И теперь помещается в твоём телефоне.</p>
+          <button class="glossy-button" data-open-player><span>♫</span> ОТКРЫТЬ ПЛЕЙЛИСТ <span>↗</span></button>
+          <p class="microcopy">музыка останется с тобой, пока ты листаешь ♡</p>
+        </section>
+
+        <section class="tv-section section-space" id="pigeon-tv" aria-labelledby="tv-title">
+          <div class="section-eyebrow">04 / ВАШ ЛЮБИМЫЙ ТЕЛЕКАНАЛ</div>
+          <h2 class="section-title" id="tv-title"><span class="tv-heading-icon">📺</span> ГОЛУБИНОЕ<br><em>ТЕЛЕВИДЕНИЕ</em> <span class="tv-heading-icon">📺</span></h2>
+          <p class="section-description">Специальный выпуск для Евы.<br>Голуби старались.</p>
+          <div class="television">
+            <span class="tv-spark" aria-hidden="true">✦</span><span class="tv-float-heart" aria-hidden="true">♡</span>
+            <div class="tv-antenna" aria-hidden="true"><i></i><i></i><span>♥</span></div>
+            <div class="tv-top"><span class="live-label"><i></i> ПРЯМОЙ ЭФИР ИЗ ГОЛУБЯТНИ</span><span aria-hidden="true">✦</span></div>
+            <div class="video-screen">
+              <iframe id="pigeon-video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/LZRpBgiMeNs?enablejsapi=1&amp;playsinline=1&amp;autoplay=0&amp;rel=0" title="Голубиное телевидение — специальный выпуск для Евы" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="tv-bottom"><span class="tv-brand">GOLUBЬ<span>VISION</span></span><div class="tv-grille" aria-hidden="true"></div><button class="tv-knob" id="tv-heart" aria-label="Поставить лайк голубиному телевидению">♥</button></div>
+          </div>
+          <div class="tv-approved"><span aria-hidden="true">✧</span> 100% PIGEON APPROVED <span aria-hidden="true">✧</span></div>
+          <p class="video-note" id="video-note">Когда включишь видео, музыка подождёт.</p>
+          <a class="youtube-link" id="youtube-fallback" href="https://www.youtube.com/watch?v=LZRpBgiMeNs" target="_blank" rel="noopener noreferrer">Не показывает? Смотреть на YouTube ↗</a>
+        </section>
+
+        <section class="pigeon-section section-space glitter-zone" aria-labelledby="pigeon-title">
+          <div class="section-eyebrow">05 / ОЧЕНЬ ВАЖНЫЙ КУРЛЫК</div>
+          <h2 class="section-title" id="pigeon-title">Голубь мира.<br><em>Твоего мира.</em></h2>
+          <div class="pigeon-portrait">
+            <span class="portrait-star" aria-hidden="true">✦</span>
+            <button class="pigeon-interaction portrait-button" aria-label="Отправить в полёт голубя, заглянувшего в окно"><img src="images/mobile/peagun1.webp" width="760" height="400" alt="Очень любопытный голубь смотрит прямо в камеру" loading="lazy"></button>
+            <span class="portrait-note">он просто хотел сказать,<br>что ты классная</span>
+          </div>
+          <p class="section-description">Нажми на голубя. Он немного драматичный.<br>А пять «курлык» подряд — уже вечеринка…</p>
+          <button class="small-glossy" id="rave-stop" hidden>Закончить голубиный рейв ♡</button>
+        </section>
+
+        <footer class="site-footer glitter-zone">
+          <span class="footer-heart" aria-hidden="true">♡</span><p>Мир — странное место.<br>Хорошо, что в нём есть <em>ты.</em></p>
+          <div>СДЕЛАНО С ЛЮБОВЬЮ И ЛЁГКИМ ПЕРЕБЛЁСТОМ</div>
+          <span class="footer-signature">eva.world © 2026 &nbsp; ✦ &nbsp; forever iconic</span>
+          <a href="#home" class="back-top">Ещё разочек? ↑</a>
+        </footer>
+      </main>
+    </div>
+
+    <div class="edge-visitor" id="edge-visitor" hidden><button aria-label="Погладить неожиданного гостя" id="visitor-button"><img id="visitor-image" src="images/mobile/cat2.webp" width="460" height="379" alt="Любопытный гость"><span id="visitor-speech">проверка: ты улыбаешься?</span></button></div>
+    <div class="rave-banner" id="rave-banner" hidden><span>🪩 ГОЛУБИНЫЙ РЕЙВ 🪩</span><button id="rave-close" aria-label="Закончить рейв">×</button></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <canvas id="glitter-canvas" aria-hidden="true"></canvas>
+
+    <aside class="music-dock" aria-label="Мини-плеер">
+      <button class="dock-track" data-open-player aria-label="Открыть полный музыкальный плеер"><span class="disc" aria-hidden="true">♡</span><span class="track-label"><small>EVA.FM <span id="dock-status">· НАЖМИ PLAY</span></small><b id="dock-title">Звезда по имени Солнце</b></span></button>
+      <div class="dock-controls"><button class="icon-button" data-previous aria-label="Предыдущая песня"><svg><use href="#i-prev"/></svg></button><button class="icon-button play-button" data-play aria-label="Включить музыку"><svg><use href="#i-play"/></svg></button><button class="icon-button" data-next aria-label="Следующая песня"><svg><use href="#i-next"/></svg></button><button class="icon-button playlist-toggle" data-open-player aria-label="Открыть плейлист" aria-controls="music-panel" aria-expanded="false"><svg><use href="#i-list"/></svg></button></div>
+    </aside>
+
+    <dialog class="music-panel" id="music-panel" aria-labelledby="player-title">
+      <div class="panel-handle" aria-hidden="true"></div>
+      <div class="window-bar player-bar"><span id="player-title">✦ EVAAMP — LOVE EDITION</span><button class="icon-button" id="close-player" aria-label="Свернуть плеер"><svg><use href="#i-close"/></svg></button></div>
+      <div class="panel-body">
+        <div class="player-display"><div><span class="display-label">СЕЙЧАС В ТВОЁМ МИРЕ</span><h2 id="panel-track-title">Звезда по имени Солнце</h2><p id="panel-artist">КИНО</p></div><div class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="seek-control"><label class="sr-only" for="seek">Позиция в песне</label><input type="range" id="seek" min="0" max="1000" value="0" disabled><div><span id="elapsed">0:00</span><span id="duration">—:—</span></div></div>
+        <div class="panel-controls"><button class="icon-button" data-previous aria-label="Предыдущая песня"><svg><use href="#i-prev"/></svg></button><button class="icon-button play-button panel-play" data-play aria-label="Включить музыку"><svg><use href="#i-play"/></svg></button><button class="icon-button" data-next aria-label="Следующая песня"><svg><use href="#i-next"/></svg></button></div>
+        <div class="volume-control"><svg aria-hidden="true"><use href="#i-volume"/></svg><label class="sr-only" for="volume">Громкость музыки</label><input type="range" id="volume" min="0" max="100" value="70"><span id="volume-value">70%</span></div>
+        <p class="volume-hint" id="volume-hint" hidden>На iPhone громкость меняется кнопками телефона ♡</p>
+        <div class="playlist-heading"><span>♡ ТВОЙ ПЛЕЙЛИСТ</span><span id="track-count">01 ТРЕК</span></div>
+        <ol class="playlist" id="playlist"></ol>
+        <p class="player-message" id="player-message" role="status">Включи музыку. Ты здесь главная.</p>
+      </div>
+    </dialog>
+    <audio id="music" preload="none" playsinline src="audio/kino-sun.mp3"></audio>
+    <noscript><p class="noscript-note">Для музыки и маленьких чудес включи JavaScript. Видео можно посмотреть по ссылке выше ♡</p></noscript>
+  </body>
+</html>
