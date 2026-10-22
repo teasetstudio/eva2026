@@ -50,6 +50,9 @@ test('preview serves the postcard and live playlist', async () => {
   assert.match(html, /youtube-nocookie\.com\/embed\/LZRpBgiMeNs\?/);
   assert.match(html, /youtube\.com\/watch\?v=LZRpBgiMeNs/);
   assert.match(html, /autoplay=0/);
+  const diamond = await fetch(`${base}/images/diamong.png`);
+  assert.equal(diamond.status, 200);
+  assert.equal(diamond.headers.get('content-type'), 'image/png');
   const playlist = await (await fetch(`${base}/tracks.json`)).json();
   assert.deepEqual(playlist, await audioManifest(root));
   assert.deepEqual(playlist[0], { src: 'audio/Fergie-Glamorous-Instrumental.mp3', title: 'Glamorous (Instrumental)', artist: 'Fergie' });
@@ -68,6 +71,19 @@ test('public copy contains the exact Proverbs message without romantic framing',
   for (const phrase of ['love_letter.txt', 'love you', 'LOVE EDITION', '100% FEELINGS', 'СДЕЛАНО С ЛЮБОВЬЮ', 'Посылка с любовью', 'Уровень обожания', 'КОМИТЕТ ПО ОБОЖАНИЮ', 'xoxo']) {
     assert.equal((html + script).toLowerCase().includes(phrase.toLowerCase()), false, phrase);
   }
+  assert.doesNotMatch(html + script, /[◆♡♥❤💖💕💗💓💞💘💝💟]/u);
+  assert.match(html, /images\/diamong\.png/);
+  assert.match(script, /images\/diamong\.png/);
+});
+
+test('preview serves the original shocked cat and its interaction assets', async () => {
+  const cat = await fetch(`${base}/images/cat4.png`);
+  assert.equal(cat.status, 200);
+  assert.equal(cat.headers.get('content-type'), 'image/png');
+  assert.deepEqual(Buffer.from(await cat.arrayBuffer()), await readFile(path.join(root, 'images/cat4.png')));
+  for (const asset of ['panic.js', 'panic.css', 'images/mobile/peagun2.webp', 'images/mobile/peagun1.webp', 'images/butterfly.png', 'images/lapki.png', 'images/like.png']) {
+    assert.equal((await fetch(`${base}/${asset}`)).status, 200, asset);
+  }
 });
 
 test('audio supports mobile seek range requests and HEAD', async () => {
@@ -85,9 +101,34 @@ test('audio supports mobile seek range requests and HEAD', async () => {
   assert.equal((await head.arrayBuffer()).byteLength, 0);
 });
 
+test('forest video supports inline playback, byte ranges, and HEAD', async () => {
+  const bytes = await readFile(path.join(root, 'video/eva2.mp4'));
+  const response = await fetch(`${base}/video/eva2.mp4`, { headers: { Range: 'bytes=0-1023' } });
+  assert.equal(response.status, 206);
+  assert.equal(response.headers.get('content-type'), 'video/mp4');
+  assert.equal(response.headers.get('accept-ranges'), 'bytes');
+  assert.equal(response.headers.get('content-range'), `bytes 0-1023/${bytes.length}`);
+  assert.deepEqual(Buffer.from(await response.arrayBuffer()), bytes.subarray(0, 1024));
+  const head = await fetch(`${base}/video/eva2.mp4`, { method: 'HEAD' });
+  assert.equal(Number(head.headers.get('content-length')), bytes.length);
+  assert.equal((await head.arrayBuffer()).byteLength, 0);
+  assert.equal((await fetch(`${base}/images/mobile/eva2-poster.webp`)).status, 200);
+});
+
 test('preview keeps configuration and repository files private', async () => {
   for (const pathname of ['/.git/config', '/package.json', '/scripts/serve.mjs', '/%2e%2e/package.json', '/audio/missing.mp3']) {
     assert.equal((await fetch(base + pathname)).status, 404, pathname);
+  }
+});
+
+test('photo album serves all original JPEGs and mobile WebP copies', async () => {
+  for (let index = 1; index <= 7; index++) {
+    for (const [asset, type] of [[`images/friends${index}.jpg`, 'image/jpeg'], [`images/mobile/friends${index}.webp`, 'image/webp']]) {
+      const response = await fetch(`${base}/${asset}`, { method: 'HEAD' });
+      assert.equal(response.status, 200, asset);
+      assert.equal(response.headers.get('content-type'), type, asset);
+      assert.ok(Number(response.headers.get('content-length')) > 0, asset);
+    }
   }
 });
 
@@ -103,5 +144,7 @@ test('production package contains every local page asset and every playlist song
   const manifest = JSON.parse(await readFile(path.join(output, 'tracks.json'), 'utf8'));
   assert.ok(manifest.length > 0);
   for (const track of manifest) await access(path.join(output, decodeURIComponent(track.src)));
+  assert.deepEqual(await readFile(path.join(output, 'video/eva2.mp4')), await readFile(path.join(root, 'video/eva2.mp4')));
+  await access(path.join(output, 'images/mobile/eva2-poster.webp'));
   assert.deepEqual(manifest, await audioManifest(root));
 });

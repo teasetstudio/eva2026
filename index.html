@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#f54d9b">
     <meta name="description" content="Личный кусочек розового интернета для Евы. Котики, голуби, любимая музыка и слишком много блёсток.">
-    <title>Ева, с днем рождения! ♡</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='54'%3E💖%3C/text%3E%3C/svg%3E">
+    <title>Ева, с днем рождения!</title>
+    <link rel="icon" type="image/png" href="images/diamong.png">
     <link rel="preload" as="image" href="images/mobile/cat3.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&amp;family=Yeseva+One&amp;display=swap">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="panic.css">
     <script src="app.js" defer></script>
+    <script src="panic.js" defer></script>
   </head>
   <body>
     <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -34,7 +36,7 @@
 
       <main id="home">
         <section class="hero glitter-zone" aria-labelledby="hero-title">
-          <div class="hero-topline"><span class="tiny-heart">♥</span> ЛИЧНЫЙ УГОЛОК РОЗОВОГО ИНТЕРНЕТА</div>
+          <div class="hero-topline"><img class="tiny-heart" src="images/diamong.png" alt=""> ЛИЧНЫЙ УГОЛОК РОЗОВОГО ИНТЕРНЕТА</div>
           <span class="hero-star star-one" aria-hidden="true">✧</span>
           <span class="hero-star star-two" aria-hidden="true">✦</span>
           <div class="edition">SPECIAL EDITION<br><b>ONLY FOR EVA</b></div>
@@ -53,7 +55,7 @@
               <img src="images/mobile/peagun2.webp" width="200" height="139" alt="Голубь — официальный курьер комитета">
             </button>
             <button class="draggable sticker vip-sticker" aria-label="Перетащить наклейку VIP пальцем, или нажать">100%<br><b>THAT GIRL</b><br>✦ VIP ✦</button>
-            <span class="chrome-heart" aria-hidden="true">♥</span>
+            <img class="chrome-heart" src="images/like.png" alt="">
             <span class="collage-caption">одобрено котом ✓</span>
           </div>
 
@@ -62,7 +64,7 @@
           <a class="scroll-cue" href="#letter">листай, тут ещё кое-что <span>↓</span></a>
         </section>
 
-        <div class="ticker" aria-hidden="true"><div>♡ TOO GLAM TO GIVE A DAMN &nbsp; ✦ &nbsp; PIGEON COMMITTEE &nbsp; ♡ &nbsp; КУРЛЫК, ЛЕГЕНДА &nbsp; ✦ &nbsp; TOO GLAM TO GIVE A DAMN &nbsp; ✦ &nbsp; PIGEON COMMITTEE &nbsp; ♡ &nbsp; КУРЛЫК, ЛЕГЕНДА &nbsp; ✦ &nbsp;</div></div>
+        <div class="ticker" aria-hidden="true"><div><img class="pink-diamond" src="images/diamong.png" alt=""> TOO GLAM TO GIVE A DAMN &nbsp; ✦ &nbsp; PIGEON COMMITTEE &nbsp; <img class="pink-diamond" src="images/diamong.png" alt=""> &nbsp; КУРЛЫК, ЛЕГЕНДА &nbsp; ✦ &nbsp; TOO GLAM TO GIVE A DAMN &nbsp; ✦ &nbsp; PIGEON COMMITTEE &nbsp; <img class="pink-diamond" src="images/diamong.png" alt=""> &nbsp; КУРЛЫК, ЛЕГЕНДА &nbsp; ✦ &nbsp;</div></div>
 
         <section class="letter-section glitter-zone section-space" id="letter" aria-labelledby="letter-title">
           <div class="section-eyebrow">01 / ВХОДЯЩЕЕ СООБЩЕНИЕ</div>
@@ -101,41 +103,100 @@
               <img src="images/mobile/cat2.webp" width="460" height="379" alt="Кот с огромными голубыми глазами" loading="lazy">
               <span><b>ОТДЕЛ ЭКСПЕРТИЗЫ</b><small>«VIP-статус подтверждён.»</small></span>
             </button>
-            <span class="gallery-heart" aria-hidden="true">♡</span>
+            <img class="gallery-heart" src="images/lapki.png" alt="">
             <button class="draggable sticker status-sticker" aria-label="Перетащить наклейку VIP пальцем, или нажать">VIP<br><i>status!</i></button>
           </div>
-          <div class="pet-counter"><span>♡</span> Уровень котодоверия: <b id="pet-count">бесконечный</b></div>
+          <div class="pet-counter"><img class="pet-diamond" src="images/diamong.png" alt=""> Уровень котодоверия: <b id="pet-count">бесконечный</b></div>
         </section>
 
-        <section class="music-section section-space glitter-zone" aria-labelledby="music-title">
-          <div class="section-eyebrow">03 / САУНДТРЕК ГЛАВНОЙ ГЕРОИНИ</div>
-          <h2 class="section-title" id="music-title">Хороший вкус.<br><em>Громкий звук.</em></h2>
-          <div class="cassette" aria-hidden="true"><div class="cassette-top">EVA'S MIXTAPE <span>SIDE ♡</span></div><div class="cassette-label"><span>официальный саундтрек</span><div class="tape-reels"><i></i><div></div><i></i></div></div><div class="cassette-bottom">STEREO &nbsp; ✦ &nbsp; 100% SOUND <b>♥</b></div></div>
-          <p class="section-description">Розовый Winamp повзрослел.<br>И теперь помещается в твоём телефоне.</p>
-          <button class="glossy-button" data-open-player><span>♫</span> ОТКРЫТЬ ПЛЕЙЛИСТ <span>↗</span></button>
-          <p class="microcopy">музыка останется с тобой, пока ты листаешь ♡</p>
+        <section class="panic-section" id="cat-panic" aria-labelledby="panic-title" data-scene="idle" data-phase="settled">
+          <div class="panic-heading">
+            <div class="section-eyebrow">03 / ЭКСТРЕННЫЙ КОШАЧИЙ ВЫПУСК</div>
+            <h2 id="panic-title"><span aria-hidden="true">🚨</span> КОТ В ШОКЕ <span aria-hidden="true">🚨</span></h2>
+            <p>Он увидел то, чего не должен был видеть...</p>
+            <span class="panic-heading-star" aria-hidden="true">✧</span>
+          </div>
+
+          <div class="panic-console" id="panic-console">
+            <div class="panic-titlebar"><span><span aria-hidden="true">✦</span> кот.exe — не отвечает</span><span aria-hidden="true">_ &nbsp; □ &nbsp; ×</span></div>
+            <div class="panic-warning"><span aria-hidden="true">⚠️</span> УРОВЕНЬ ПАНИКИ: КРИТИЧЕСКИЙ <span aria-hidden="true">⚠️</span></div>
+
+            <div class="panic-stage">
+              <img class="panic-cat" src="images/cat4.png" width="495" height="596" alt="Кот с огромными круглыми глазами и ушами в стороны: кажется, он только что понял всё" loading="lazy" decoding="async">
+              <span class="panic-camera" aria-hidden="true"><i></i> КАМЕРА 04 · БЕЗ ФИЛЬТРОВ</span>
+              <span class="panic-cat-caption" id="panic-cat-caption">Он даже не моргает.</span>
+              <div class="panic-reveal" id="panic-reveal" hidden>
+                <div class="panic-round">
+                  <video id="panic-video" width="400" height="400" playsinline preload="none" poster="images/mobile/eva2-poster.webp" aria-label="Видеоулика из леса: Катя рассказывает, кто собирает ягоды, а кто их ест">
+                    <source src="video/eva2.mp4" type="video/mp4">
+                    Твой браузер не открыл видео. <a href="video/eva2.mp4">Смотреть запись отдельно</a>.
+                  </video>
+                  <svg class="panic-video-progress" viewBox="0 0 100 100" aria-hidden="true"><circle class="panic-video-track" cx="50" cy="50" r="48"/><circle class="panic-video-elapsed" cx="50" cy="50" r="48" pathLength="100"/></svg>
+                  <button class="panic-video-toggle" id="panic-video-toggle" type="button" aria-label="Смотреть видеоулику со звуком" aria-controls="panic-video"><span aria-hidden="true" id="panic-video-icon">▶</span></button>
+                </div>
+                <div class="panic-video-toolbar"><span id="panic-video-status" role="status">ВИДЕОУЛИКА ИЗ ЛЕСА</span><span id="panic-video-time">0:00 / 0:19</span><button id="panic-video-sound" type="button" aria-label="Выключить звук видео" aria-controls="panic-video" aria-pressed="false">🔊</button></div>
+              </div>
+            </div>
+
+            <div class="panic-report" id="panic-report">
+              <div class="panic-report-bar"><span id="panic-report-label">ОЖИДАНИЕ ПОКАЗАНИЙ</span><span aria-hidden="true">×</span></div>
+              <img class="panic-intruder" src="images/mobile/peagun2.webp" width="200" height="139" alt="" loading="lazy" aria-hidden="true">
+              <div class="panic-report-copy"><h3 id="panic-event-title">Свидетель пока молчит.</h3><p id="panic-event-detail">Зато глаза уже написали объяснительную.</p></div>
+            </div>
+
+            <div class="panic-controls">
+              <div class="panic-meter-heading"><span>ПАНИКОМЕТР</span><strong id="panic-value">0%</strong></div>
+              <div class="panic-meter" id="panic-meter" role="progressbar" aria-label="Уровень паники кота" aria-valuemin="0" aria-valuemax="9999" aria-valuenow="0" aria-valuetext="0% — Причина шока не установлена"><div class="panic-meter-fill" id="panic-meter-fill"></div><span class="panic-meter-ticks" aria-hidden="true"></span></div>
+              <div class="panic-meter-caption"><span id="panic-level">Причина шока не установлена</span><span id="panic-step">0 / 5</span></div>
+              <button class="panic-button" id="panic-button" type="button" aria-controls="panic-report panic-meter"><span id="panic-button-label">👀 ЧТО ОН УВИДЕЛ?!</span><span aria-hidden="true">↗</span></button>
+              <p class="panic-hint" id="panic-hint">4 версии. 1 видеоулика. Кот знает правду.</p>
+            </div>
+            <div class="panic-video-error" id="panic-video-error" role="status" hidden><p>Запись не загрузилась. Нажми на кружок ещё раз или открой видео отдельно.</p><a href="video/eva2.mp4" target="_blank" rel="noopener">Открыть видеоулику ↗</a></div>
+            <div class="panic-case-file" id="panic-case-file" hidden>
+              <div class="panic-verdict" id="panic-verdict" hidden>
+                <span class="panic-verdict-stamp">ДЕЛО РАСКРЫТО ✓</span>
+                <div class="panic-berry-ledger"><div><b>Катя</b><span>собирала 🧺</span></div><div><b>Богдан</b><span>собирал 🧺</span></div><div><b>Ева</b><span>ела 🫐</span></div></div>
+                <blockquote>«Кто не работает,<br>тот ест».</blockquote><p class="panic-quote-author">Богдан. Лес. Стадия принятия.</p>
+                <p class="panic-forest-ruling">Сборщики требуют справедливости.<br>Ева, в следующий раз — с корзинкой!</p>
+              </div>
+              <details class="panic-transcript"><summary>Что в кружочке? Читать историю</summary><p>Катя рассказывает: кто-то собирает ягоды в лесу, а кто-то их только ест. Катя собирала, Богдан собирал, а Ева ела и прямо в камеру заявила: «А я всё съем».</p><p>Сборщики недовольны. Богдану остаётся только переделать поговорку: «Кто не работает, тот ест». Вот от чего у кота такие глаза.</p></details>
+            </div>
+          </div>
+          <p class="panic-footnote">✦ Ни один кот не был готов к этой информации. ✦</p>
+          <div class="sr-only" id="panic-announcement" role="status" aria-live="polite" aria-atomic="true"></div>
+          <div class="panic-edge-guest" id="panic-edge-guest" hidden aria-hidden="true"><span>ЭТО НЕ Я.</span><img src="images/mobile/peagun1.webp" width="760" height="400" alt="" loading="lazy"></div>
+          <noscript><p class="panic-noscript">Кот увидел, как Катя и Богдан собирают ягоды, а Ева их ест. <a href="video/eva2.mp4">Смотреть видеоулику из леса</a>.</p></noscript>
         </section>
 
         <section class="tv-section section-space" id="pigeon-tv" aria-labelledby="tv-title">
           <div class="section-eyebrow">04 / ВАШ ЛЮБИМЫЙ ТЕЛЕКАНАЛ</div>
           <h2 class="section-title" id="tv-title"><span class="tv-heading-icon">📺</span> ГОЛУБИНОЕ<br><em>ТЕЛЕВИДЕНИЕ</em> <span class="tv-heading-icon">📺</span></h2>
-          <p class="section-description">Специальный выпуск для Евы.<br>Голуби старались.</p>
+          <p class="section-description"><strong class="tv-kindness">Ева, твори добро!</strong><br>И собирай ягоды тоже — голуби всё видят.</p>
           <div class="television">
-            <span class="tv-spark" aria-hidden="true">✦</span><span class="tv-float-heart" aria-hidden="true">♡</span>
-            <div class="tv-antenna" aria-hidden="true"><i></i><i></i><span>♥</span></div>
-            <div class="tv-top"><span class="live-label"><i></i> ПРЯМОЙ ЭФИР ИЗ ГОЛУБЯТНИ</span><span aria-hidden="true">✦</span></div>
+            <span class="tv-spark" aria-hidden="true">✦</span><img class="tv-float-heart" src="images/butterfly.png" alt="">
+            <div class="tv-antenna" aria-hidden="true"><i></i><i></i></div>
+            <div class="tv-top"><span class="live-label"><i></i> В ЭФИРЕ — «ТВОРИ ДОБРО»</span><span aria-hidden="true">✦</span></div>
             <div class="video-screen">
-              <iframe id="pigeon-video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/LZRpBgiMeNs?enablejsapi=1&amp;playsinline=1&amp;autoplay=0&amp;rel=0" title="Голубиное телевидение — специальный выпуск для Евы" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe id="pigeon-video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/LZRpBgiMeNs?enablejsapi=1&amp;playsinline=1&amp;autoplay=0&amp;rel=0" title="Голубиное телевидение — «Твори добро» для Евы" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div class="tv-bottom"><span class="tv-brand">GOLUBЬ<span>VISION</span></span><div class="tv-grille" aria-hidden="true"></div><button class="tv-knob" id="tv-heart" aria-label="Поставить лайк голубиному телевидению">♥</button></div>
+            <div class="tv-bottom"><span class="tv-brand">GOLUBЬ<span>VISION</span></span><div class="tv-grille" aria-hidden="true"></div><button class="tv-knob" id="tv-heart" aria-label="Поставить лайк голубиному телевидению"><img src="images/like.png" alt=""></button></div>
           </div>
           <div class="tv-approved"><span aria-hidden="true">✧</span> 100% PIGEON APPROVED <span aria-hidden="true">✧</span></div>
           <p class="video-note" id="video-note">Когда включишь видео, музыка подождёт.</p>
           <a class="youtube-link" id="youtube-fallback" href="https://www.youtube.com/watch?v=LZRpBgiMeNs" target="_blank" rel="noopener noreferrer">Не показывает? Смотреть на YouTube ↗</a>
         </section>
 
+        <section class="music-section section-space glitter-zone" aria-labelledby="music-title">
+          <div class="section-eyebrow">05 / САУНДТРЕК ГЛАВНОЙ ГЕРОИНИ</div>
+          <h2 class="section-title" id="music-title">Хороший вкус.<br><em>Громкий звук.</em></h2>
+          <div class="cassette" aria-hidden="true"><div class="cassette-top">EVA'S MIXTAPE <span>SIDE <img class="pink-diamond" src="images/diamong.png" alt=""></span></div><div class="cassette-label"><span>официальный саундтрек</span><div class="tape-reels"><i></i><div></div><i></i></div></div><div class="cassette-bottom">STEREO &nbsp; ✦ &nbsp; 100% SOUND <img class="pink-diamond" src="images/diamong.png" alt=""></div></div>
+          <p class="section-description">Розовый Winamp повзрослел.<br>И теперь помещается в твоём телефоне.</p>
+          <button class="glossy-button" data-open-player><span>♫</span> ОТКРЫТЬ ПЛЕЙЛИСТ <span>↗</span></button>
+          <p class="microcopy">музыка останется с тобой, пока ты листаешь <img class="pink-diamond" src="images/diamong.png" alt=""></p>
+        </section>
+
         <section class="pigeon-section section-space glitter-zone" aria-labelledby="pigeon-title">
-          <div class="section-eyebrow">05 / ОЧЕНЬ ВАЖНЫЙ КУРЛЫК</div>
+          <div class="section-eyebrow">06 / ОЧЕНЬ ВАЖНЫЙ КУРЛЫК</div>
           <h2 class="section-title" id="pigeon-title">Голубь протокола.<br><em>Международного.</em></h2>
           <div class="pigeon-portrait">
             <span class="portrait-star" aria-hidden="true">✦</span>
@@ -143,11 +204,64 @@
             <span class="portrait-note">международный комитет<br>выражает уважение</span>
           </div>
           <p class="section-description">Нажми на голубя. Он немного драматичный.<br>А пять «курлык» подряд — уже вечеринка…</p>
-          <button class="small-glossy" id="rave-stop" hidden>Закончить голубиный рейв ♡</button>
+          <button class="small-glossy" id="rave-stop" hidden>Закончить голубиный рейв <img class="pink-diamond" src="images/diamong.png" alt=""></button>
+        </section>
+
+        <section class="friends-section section-space" id="friends" aria-labelledby="friends-title">
+          <div class="section-eyebrow">07 / В ОБЪЕКТИВЕ — СВОИ</div>
+          <h2 class="section-title" id="friends-title">Хорошая<br><em>компания.</em> <span aria-hidden="true">✧</span></h2>
+          <p class="section-description">Семь кадров, которые хочется оставить.<br>Листай — здесь все свои.</p>
+          <div class="friends-album" role="region" aria-roledescription="карусель" aria-labelledby="friends-title">
+            <div class="friends-album-bar"><span>✦ общая_папка / друзья</span><span id="friends-count" role="status" aria-live="polite" aria-atomic="true">7 КАДРОВ</span></div>
+            <div class="friends-track" id="friends-track" tabindex="0" aria-label="Фотографии друзей. Листай пальцем или стрелками клавиатуры">
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 1 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends1.webp" width="994" height="1500" alt="Чёрно-белое фото: трое друзей на городской лестнице" loading="lazy" decoding="async"></div>
+                <figcaption><span>Город, прогулка, свои люди.</span><a href="images/friends1.jpg" target="_blank" rel="noopener" aria-label="Открыть первую фотографию в полном размере">↗</a></figcaption>
+              </figure>
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 2 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends2.webp" width="994" height="1500" alt="Чёрно-белое фото: двое друзей за кухонным столом у окна" loading="lazy" decoding="async"></div>
+                <figcaption><span>Кухонный совет в сборе.</span><a href="images/friends2.jpg" target="_blank" rel="noopener" aria-label="Открыть вторую фотографию в полном размере">↗</a></figcaption>
+              </figure>
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 3 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends3.webp" width="1200" height="803" alt="Три подруги обнялись на улице старого города" loading="lazy" decoding="async"></div>
+                <figcaption><span>У этого вечера правильная компания.</span><a href="images/friends3.jpg" target="_blank" rel="noopener" aria-label="Открыть третью фотографию в полном размере">↗</a></figcaption>
+              </figure>
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 4 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends4.webp" width="1200" height="796" alt="Чёрно-белое фото: пятеро друзей на пляже на фоне вечернего неба" loading="lazy" decoding="async"></div>
+                <figcaption><span>Ещё один день в общую копилку.</span><a href="images/friends4.jpg" target="_blank" rel="noopener" aria-label="Открыть четвёртую фотографию в полном размере">↗</a></figcaption>
+              </figure>
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 5 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends5.webp" width="1200" height="796" alt="Чёрно-белое фото: друг с кружкой отдыхает в кресле" loading="lazy" decoding="async"></div>
+                <figcaption><span>Режим: посидеть и всё обдумать.</span><a href="images/friends5.jpg" target="_blank" rel="noopener" aria-label="Открыть пятую фотографию в полном размере">↗</a></figcaption>
+              </figure>
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 6 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends6.webp" width="1200" height="796" alt="Чёрно-белое фото: друзья собрались вместе на пляже" loading="lazy" decoding="async"></div>
+                <figcaption><span>Пляжный комитет снова в сборе.</span><a href="images/friends6.jpg" target="_blank" rel="noopener" aria-label="Открыть шестую фотографию в полном размере">↗</a></figcaption>
+              </figure>
+              <figure class="friends-slide" role="group" aria-roledescription="слайд" aria-label="Фото 7 из 7">
+                <div class="friends-photo"><img src="images/mobile/friends7.webp" width="1200" height="796" alt="Чёрно-белое фото: четверо друзей в вагоне поезда" loading="lazy" decoding="async"></div>
+                <figcaption><span>Вагон хорошей компании.</span><a href="images/friends7.jpg" target="_blank" rel="noopener" aria-label="Открыть седьмую фотографию в полном размере">↗</a></figcaption>
+              </figure>
+            </div>
+            <div class="friends-navigation" id="friends-navigation" hidden>
+              <button class="friends-arrow" id="friends-previous" type="button" aria-label="Предыдущая фотография" aria-controls="friends-track">←</button>
+              <div class="friends-dots" aria-label="Выбрать фотографию">
+                <button type="button" data-friends-slide="0" aria-label="Показать фото 1 из 7" aria-controls="friends-track" aria-current="true"><span></span></button>
+                <button type="button" data-friends-slide="1" aria-label="Показать фото 2 из 7" aria-controls="friends-track" aria-current="false"><span></span></button>
+                <button type="button" data-friends-slide="2" aria-label="Показать фото 3 из 7" aria-controls="friends-track" aria-current="false"><span></span></button>
+                <button type="button" data-friends-slide="3" aria-label="Показать фото 4 из 7" aria-controls="friends-track" aria-current="false"><span></span></button>
+                <button type="button" data-friends-slide="4" aria-label="Показать фото 5 из 7" aria-controls="friends-track" aria-current="false"><span></span></button>
+                <button type="button" data-friends-slide="5" aria-label="Показать фото 6 из 7" aria-controls="friends-track" aria-current="false"><span></span></button>
+                <button type="button" data-friends-slide="6" aria-label="Показать фото 7 из 7" aria-controls="friends-track" aria-current="false"><span></span></button>
+              </div>
+              <button class="friends-arrow" id="friends-next" type="button" aria-label="Следующая фотография" aria-controls="friends-track">→</button>
+            </div>
+          </div>
+          <p class="friends-hint"><span aria-hidden="true">✦</span> Листай пальцем. Нажми ↗, чтобы открыть фото.</p>
         </section>
 
         <footer class="site-footer glitter-zone">
-          <span class="footer-heart" aria-hidden="true">♡</span><p>Мир — странное место.<br>Голуби сделали его <em>ещё страннее.</em></p>
+          <img class="footer-heart" src="images/butterfly.png" alt=""><p>Мир — странное место.<br>Ты сделала его <em>ещё страннее.</em></p>
           <div>СОБРАНО КОТАМИ И СЛЕГКА ПЕРЕБЛЁСТЕНО</div>
           <span class="footer-signature">eva.world © 2026 &nbsp; ✦ &nbsp; forever iconic</span>
           <a href="#home" class="back-top">Ещё разочек? ↑</a>
@@ -161,7 +275,7 @@
     <canvas id="glitter-canvas" aria-hidden="true"></canvas>
 
     <aside class="music-dock" aria-label="Мини-плеер">
-      <button class="dock-track" data-open-player aria-label="Открыть полный музыкальный плеер"><span class="disc" aria-hidden="true">♡</span><span class="track-label"><small>EVA.FM <span id="dock-status">· НАЖМИ PLAY</span></small><b id="dock-title">Glamorous (Instrumental)</b></span></button>
+      <button class="dock-track" data-open-player aria-label="Открыть полный музыкальный плеер"><span class="disc" aria-hidden="true"><img class="disc-diamond" src="images/diamong.png" alt=""></span><span class="track-label"><small>EVA.FM <span id="dock-status">· НАЖМИ PLAY</span></small><b id="dock-title">Glamorous (Instrumental)</b></span></button>
       <div class="dock-controls"><button class="icon-button" data-previous aria-label="Предыдущая песня"><svg><use href="#i-prev"/></svg></button><button class="icon-button play-button" data-play aria-label="Включить музыку"><svg><use href="#i-play"/></svg></button><button class="icon-button" data-next aria-label="Следующая песня"><svg><use href="#i-next"/></svg></button><button class="icon-button playlist-toggle" data-open-player aria-label="Открыть плейлист" aria-controls="music-panel" aria-expanded="false"><svg><use href="#i-list"/></svg></button></div>
     </aside>
 
@@ -173,13 +287,13 @@
         <div class="seek-control"><label class="sr-only" for="seek">Позиция в песне</label><input type="range" id="seek" min="0" max="1000" value="0" disabled><div><span id="elapsed">0:00</span><span id="duration">—:—</span></div></div>
         <div class="panel-controls"><button class="icon-button" data-previous aria-label="Предыдущая песня"><svg><use href="#i-prev"/></svg></button><button class="icon-button play-button panel-play" data-play aria-label="Включить музыку"><svg><use href="#i-play"/></svg></button><button class="icon-button" data-next aria-label="Следующая песня"><svg><use href="#i-next"/></svg></button></div>
         <div class="volume-control"><svg aria-hidden="true"><use href="#i-volume"/></svg><label class="sr-only" for="volume">Громкость музыки</label><input type="range" id="volume" min="0" max="100" value="70"><span id="volume-value">70%</span></div>
-        <p class="volume-hint" id="volume-hint" hidden>На iPhone громкость меняется кнопками телефона ♡</p>
-        <div class="playlist-heading"><span>♡ ТВОЙ ПЛЕЙЛИСТ</span><span id="track-count">01 ТРЕК</span></div>
+        <p class="volume-hint" id="volume-hint" hidden>На iPhone громкость меняется кнопками телефона <img class="pink-diamond" src="images/diamong.png" alt=""></p>
+        <div class="playlist-heading"><span><img class="pink-diamond" src="images/diamong.png" alt=""> ТВОЙ ПЛЕЙЛИСТ</span><span id="track-count">01 ТРЕК</span></div>
         <ol class="playlist" id="playlist"></ol>
         <p class="player-message" id="player-message" role="status">Включи музыку. Ты здесь главная.</p>
       </div>
     </dialog>
     <audio id="music" preload="none" playsinline src="audio/Fergie-Glamorous-Instrumental.mp3"></audio>
-    <noscript><p class="noscript-note">Для музыки и маленьких чудес включи JavaScript. Видео можно посмотреть по ссылке выше ♡</p></noscript>
+    <noscript><p class="noscript-note">Для музыки и маленьких чудес включи JavaScript. Видео можно посмотреть по ссылке выше <img class="pink-diamond" src="images/diamong.png" alt=""></p></noscript>
   </body>
 </html>

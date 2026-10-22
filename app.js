@@ -18,14 +18,29 @@
   let pigeonTaps = [];
   let pageScroll = 0;
 
-  const say = (message) => {
+  const createDiamond = (className = 'pink-diamond') => {
+    const diamond = document.createElement('img');
+    diamond.className = className;
+    diamond.src = 'images/diamong.png';
+    diamond.alt = '';
+    return diamond;
+  };
+  const renderWithDiamond = (element, message) => {
+    element.replaceChildren(message, ' ', createDiamond());
+  };
+  const say = (message, withDiamond = false) => {
     const toast = $('#toast');
-    toast.textContent = message;
+    if (withDiamond) renderWithDiamond(toast, message);
+    else toast.textContent = message;
     toast.classList.add('visible');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('visible'), 3200);
   };
-  const playerMessage = (message) => { $('#player-message').textContent = message; };
+  const playerMessage = (message, withDiamond = false) => {
+    const element = $('#player-message');
+    if (withDiamond) renderWithDiamond(element, message);
+    else element.textContent = message;
+  };
   const time = (seconds) => Number.isFinite(seconds)
     ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}` : '—:—';
 
@@ -40,7 +55,7 @@
     $('#dock-status').textContent = playing ? '· В ЭФИРЕ' : '· НАЖМИ PLAY';
     if ('mediaSession' in navigator) navigator.mediaSession.playbackState = playing ? 'playing' : 'paused';
     const current = $('#playlist [aria-current="true"] > span:last-child');
-    if (current) current.textContent = playing ? '♫' : '♡';
+    if (current) current.replaceChildren(playing ? '♫' : createDiamond());
   };
 
   const pauseMusic = () => {
@@ -52,18 +67,20 @@
   const playMusic = async () => {
     const request = ++playRequest;
     if (youtubeReady) youtubePlayer.pauseVideo();
+    $('#panic-video')?.pause();
     playerMessage('Загружаем твою песню…');
     try {
       await audio.play();
       if (request !== playRequest) return;
-      playerMessage('Ты — главная героиня. Это твой саундтрек ♡');
+      playerMessage('Ты — главная героиня. Это твой саундтрек', true);
     } catch (error) {
       if (request !== playRequest || error.name === 'AbortError') return;
       const message = error.name === 'NotAllowedError'
-        ? 'Нажми Play ещё раз, чтобы включить музыку ♡'
+        ? 'Нажми Play ещё раз, чтобы включить музыку'
         : 'Песня не загрузилась. Попробуй Play ещё раз.';
-      playerMessage(message);
-      say(message);
+      const withDiamond = error.name === 'NotAllowedError';
+      playerMessage(message, withDiamond);
+      say(message, withDiamond);
     }
     syncPlayback();
   };
@@ -90,7 +107,8 @@
       artist.textContent = item.artist;
       info.append(artist);
       const icon = document.createElement('span');
-      icon.textContent = index === trackIndex && !audio.paused ? '♫' : '♡';
+      if (index === trackIndex && !audio.paused) icon.textContent = '♫';
+      else icon.append(createDiamond());
       icon.setAttribute('aria-hidden', 'true');
       button.append(number, info, icon);
       button.addEventListener('click', () => selectTrack(index, true));
@@ -98,7 +116,12 @@
       list.append(li);
     });
     if ('mediaSession' in navigator && 'MediaMetadata' in window) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: track.title, artist: track.artist, album: 'EVA.FM ♡' });
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: track.title,
+        artist: track.artist,
+        album: 'EVA.FM',
+        artwork: [{ src: 'images/diamong.png', sizes: '445x410', type: 'image/png' }]
+      });
     }
   };
 
@@ -206,11 +229,17 @@
   }
   const pauseForVideo = () => {
     const wasPlaying = !audio.paused;
+    $('#panic-video')?.pause();
     pauseMusic();
     playerMessage('Музыка на паузе: сейчас голубиное ТВ. Вернуть её можно кнопкой Play.');
-    $('#video-note').textContent = 'Музыка на паузе. Вернуть её можно кнопкой Play ♡';
-    if (wasPlaying) say('Музыка подождёт. В эфире голуби ♡');
+    renderWithDiamond($('#video-note'), 'Музыка на паузе. Вернуть её можно кнопкой Play');
+    if (wasPlaying) say('Музыка подождёт. В эфире голуби', true);
   };
+  $('#panic-video')?.addEventListener('play', () => {
+    pauseMusic();
+    if (youtubeReady) youtubePlayer.pauseVideo();
+    playerMessage('Музыка на паузе: смотрим видеоулику из леса. Вернуть её можно кнопкой Play.');
+  });
   const videoUnavailable = () => {
     $('#video-note').textContent = 'Эфир здесь недоступен. Открой этот же выпуск на YouTube ↓';
     $('.video-screen').classList.add('video-error');
@@ -254,7 +283,7 @@
     setTimeout(() => { if (document.activeElement === iframe) pauseForVideo(); }, 0);
   });
   $('#youtube-fallback').addEventListener('click', pauseForVideo);
-  $('#tv-heart').addEventListener('click', (event) => { sparkleAt(event.currentTarget); say('Твой лайк передан в голубятню ♡'); });
+  $('#tv-heart').addEventListener('click', (event) => { sparkleAt(event.currentTarget); say('Твой лайк передан в голубятню', true); });
 
   // A single demand-driven canvas limits particles and avoids hundreds of DOM animations.
   const canvas = $('#glitter-canvas');
@@ -394,7 +423,7 @@
   let complimentIndex = 0;
   $('#compliment-button').addEventListener('click', (event) => {
     $('#compliment').textContent = compliments[complimentIndex++ % compliments.length];
-    event.currentTarget.textContent = 'Ещё одно сообщение ♡';
+    renderWithDiamond(event.currentTarget, 'Ещё одно сообщение');
     sparkleAt(event.currentTarget);
   });
 
@@ -435,8 +464,65 @@
     sticker.addEventListener('pointerup', finishDrag);
     sticker.addEventListener('pointercancel', finishDrag);
     sticker.addEventListener('lostpointercapture', finishDrag);
-    sticker.addEventListener('click', () => { if (!suppressClick) { sparkleAt(sticker); say('Эту наклейку можно двигать пальцем ♡'); } });
+    sticker.addEventListener('click', () => { if (!suppressClick) { sparkleAt(sticker); say('Эту наклейку можно двигать пальцем', true); } });
   });
+
+  // Native scrolling keeps photo swipes, vertical page scrolling and pinch zoom
+  // available without gesture handlers or an autoplay timer.
+  const friendsTrack = $('#friends-track');
+  if (friendsTrack) {
+    const slides = [...friendsTrack.querySelectorAll('.friends-slide')];
+    const dots = $$('[data-friends-slide]');
+    let active = 0;
+    let scrollTimer;
+    let trackWidth = friendsTrack.clientWidth;
+    const updatePhoto = (index) => {
+      active = index;
+      $('#friends-count').textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === index)));
+    };
+    const showPhoto = (index, instant = false) => {
+      clearTimeout(scrollTimer);
+      const destination = (index + slides.length) % slides.length;
+      const jump = instant || Math.abs(destination - active) > 1;
+      updatePhoto(destination);
+      friendsTrack.scrollTo({
+        left: slides[active].offsetLeft,
+        behavior: jump || motionPreference.matches ? 'instant' : 'smooth',
+      });
+    };
+    const readPhoto = () => {
+      clearTimeout(scrollTimer);
+      const index = slides.reduce((nearest, slide, candidate) =>
+        Math.abs(slide.offsetLeft - friendsTrack.scrollLeft) < Math.abs(slides[nearest].offsetLeft - friendsTrack.scrollLeft) ? candidate : nearest, 0);
+      if (index !== active) updatePhoto(index);
+    };
+    $('#friends-previous').addEventListener('click', () => showPhoto(active - 1));
+    $('#friends-next').addEventListener('click', () => showPhoto(active + 1));
+    dots.forEach((dot) => dot.addEventListener('click', () => showPhoto(Number(dot.dataset.friendsSlide))));
+    friendsTrack.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(readPhoto, 140);
+    }, { passive: true });
+    friendsTrack.addEventListener('scrollend', readPhoto);
+    friendsTrack.addEventListener('keydown', (event) => {
+      if (event.target !== friendsTrack) return;
+      const destinations = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: slides.length - 1 };
+      if (!(event.key in destinations)) return;
+      event.preventDefault();
+      showPhoto(destinations[event.key], event.key === 'Home' || event.key === 'End');
+    });
+    const resizePhotos = () => {
+      if (friendsTrack.clientWidth === trackWidth) return;
+      trackWidth = friendsTrack.clientWidth;
+      showPhoto(active, true);
+    };
+    if ('ResizeObserver' in window) new ResizeObserver(resizePhotos).observe(friendsTrack);
+    else window.addEventListener('resize', resizePhotos, { passive: true });
+    motionPreference.addEventListener('change', () => showPhoto(active, true));
+    updatePhoto(0);
+    $('#friends-navigation').hidden = false;
+  }
 
   let visitorTimer;
   let visitorHideTimer;
@@ -446,7 +532,7 @@
     clearTimeout(visitorTimer);
     if (document.hidden || motionPreference.matches) return;
     visitorTimer = setTimeout(() => {
-      if (panel.open || raveActive) { scheduleVisitor(); return; }
+      if (panel.open || raveActive || $('#cat-panic')?.dataset.paused === 'false') { scheduleVisitor(); return; }
       visits++;
       const pigeon = visits % 2 === 0;
       $('#visitor-image').src = pigeon ? 'images/mobile/peagun2.webp' : 'images/mobile/cat2.webp';

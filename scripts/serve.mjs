@@ -7,7 +7,7 @@ import { audioManifest } from './audio-manifest.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const port = Number(process.env.PORT || 4173);
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.webp': 'image/webp', '.mp3': 'audio/mpeg', '.m4a': 'audio/mp4', '.ogg': 'audio/ogg', '.wav': 'audio/wav', '.aac': 'audio/aac', '.flac': 'audio/flac' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp4': 'video/mp4', '.mp3': 'audio/mpeg', '.m4a': 'audio/mp4', '.ogg': 'audio/ogg', '.wav': 'audio/wav', '.aac': 'audio/aac', '.flac': 'audio/flac' };
 
 const server = http.createServer(async (request, response) => {
   try {
@@ -20,7 +20,7 @@ const server = http.createServer(async (request, response) => {
     if (request.method !== 'GET' && request.method !== 'HEAD') { response.writeHead(405).end(); return; }
     const relative = pathname === '/' ? 'index.html' : pathname.slice(1);
     // Serve only postcard assets, never the repository or local configuration.
-    if (!/^(index\.html|styles\.css|app\.js|tracks\.json|images\/mobile\/[^/]+\.webp|audio\/[^/]+\.(mp3|m4a|ogg|wav|aac|flac))$/i.test(relative)) {
+    if (!/^(index\.html|styles\.css|app\.js|panic\.css|panic\.js|tracks\.json|images\/(diamong|butterfly|lapki|like|cat4)\.png|images\/friends[1-7]\.jpg|images\/mobile\/[^/]+\.webp|video\/eva2\.mp4|audio\/[^/]+\.(mp3|m4a|ogg|wav|aac|flac))$/i.test(relative)) {
       response.writeHead(404).end('Not found'); return;
     }
     const file = path.resolve(root, relative);
