@@ -1,3 +1,5 @@
 [
+  { "src": "audio/Fergie-Glamorous-Instrumental.mp3", "title": "Glamorous (Instrumental)", "artist": "Fergie" },
+  { "src": "audio/nebesa-meladze.mp3", "title": "Небеса", "artist": "Меладзе" },
   { "src": "audio/kino-sun.mp3", "title": "Звезда по имени Солнце", "artist": "КИНО" }
 ]

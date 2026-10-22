@@ -6,7 +6,7 @@
   const audio = $('#music');
   const panel = $('#music-panel');
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-  let tracks = [{ src: 'audio/kino-sun.mp3', title: 'Звезда по имени Солнце', artist: 'КИНО' }];
+  let tracks = [{ src: 'audio/Fergie-Glamorous-Instrumental.mp3', title: 'Glamorous (Instrumental)', artist: 'Fergie' }];
   let trackIndex = 0;
   let youtubePlayer;
   let youtubeReady = false;
@@ -329,7 +329,7 @@
   $('#fireworks-button').addEventListener('click', () => {
     if (fireworksRunning) return;
     fireworksRunning = true;
-    say('ЕВА, ТЫ ПРОСТО КОСМОС! ✦');
+    say('ЕВА, +999 ОЧКОВ ГЛАМУРА! ✦');
     const bounds = $('.postcard').getBoundingClientRect();
     const bursts = motionPreference.matches ? 1 : 6;
     for (let i = 0; i < bursts; i++) setTimeout(() => {
@@ -349,7 +349,7 @@
     sparkleAt(element);
     setTimeout(() => element.classList.remove('bouncing'), 700);
   };
-  const catMessages = ['Мур. Ева — любовь ♡', 'Кот официально счастлив.', 'Добавлено +100 к уюту ♡', 'Твоя заявка на обожание одобрена.'];
+  const catMessages = ['Кошачий совет вынес положительный вердикт.', 'Кот в очках подтвердил VIP-статус.', 'Котодоверие: +100 очков.', 'Эксперт удовлетворён. Это редкость.'];
   const petCat = (element) => {
     bounce(element);
     petCount++;
@@ -384,13 +384,13 @@
     pigeonTaps = pigeonTaps.filter((tap) => now - tap < 12000);
     pigeonTaps.push(now);
     if (pigeonTaps.length >= 5) { pigeonTaps = []; startRave(); }
-    else say(['Курлык! Посылка с любовью доставлена.', 'Птица счастья временно покинула чат.', 'Голубь ушёл за блёстками.'][pigeonTaps.length % 3]);
+    else say(['Курлык! Протокол одобрения доставлен.', 'Птица счастья временно покинула чат.', 'Голубь ушёл за блёстками.'][pigeonTaps.length % 3]);
   };
   $$('.pigeon-interaction').forEach((pigeon) => pigeon.addEventListener('click', () => flyPigeon(pigeon)));
   $('#rave-stop').addEventListener('click', stopRave);
   $('#rave-close').addEventListener('click', stopRave);
 
-  const compliments = ['Ты — та самая девочка, ради которой голуби выучили HTML. ♡', 'Напоминание: тебе очень идёт быть собой.', 'У тебя непринятый вызов от прекрасного будущего. Перезвони ♡', 'Твой уровень очарования превышает тариф. Доплата не требуется.', 'Если бы ты была песней — только на репите. ♫'];
+  const compliments = ['Международный голубиный комитет выражает Еве уважение.', 'Коты вынесли положительный вердикт. Обжалованию не подлежит.', 'Ева, тебе присвоено звание «ЛЕГЕНДА 2007 ГОДА».', 'Поздравляем! Голуби решили не воровать твои крошки.', 'Кот в очках лично подтвердил твой VIP-статус.'];
   let complimentIndex = 0;
   $('#compliment-button').addEventListener('click', (event) => {
     $('#compliment').textContent = compliments[complimentIndex++ % compliments.length];

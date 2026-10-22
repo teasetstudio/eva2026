@@ -50,7 +50,24 @@ test('preview serves the postcard and live playlist', async () => {
   assert.match(html, /youtube-nocookie\.com\/embed\/LZRpBgiMeNs\?/);
   assert.match(html, /youtube\.com\/watch\?v=LZRpBgiMeNs/);
   assert.match(html, /autoplay=0/);
-  assert.deepEqual(await (await fetch(`${base}/tracks.json`)).json(), await audioManifest(root));
+  const playlist = await (await fetch(`${base}/tracks.json`)).json();
+  assert.deepEqual(playlist, await audioManifest(root));
+  assert.deepEqual(playlist[0], { src: 'audio/Fergie-Glamorous-Instrumental.mp3', title: 'Glamorous (Instrumental)', artist: 'Fergie' });
+});
+
+test('public copy contains the exact Proverbs message without romantic framing', async () => {
+  const html = await readFile(path.join(root, 'index.html'), 'utf8');
+  const script = await readFile(path.join(root, 'app.js'), 'utf8');
+  assert.match(html, />✦ proverbs_3\.txt</);
+  assert.match(html, /3 Да не покинут тебя любовь и верность; обвяжи ими свою шею, запиши их на дощечке сердца\./);
+  assert.match(html, /4 Тогда ты найдешь расположение и доброе имя у Бога и у людей\./);
+  assert.match(html, /Библия, Притчи 3:/);
+  assert.match(html, /5 Доверяй Господу от всего сердца и не полагайся на собственный разум;/);
+  assert.match(html, /6 познавай Его во всех своих путях, и стези твои Он сделает ровными\./);
+  assert.match(html, /href="https:\/\/bible\.by\/nrt\/20\/3\/"[^>]*>Притчи, 3 глава — Библия — Новый русский перевод<\/a>/);
+  for (const phrase of ['love_letter.txt', 'love you', 'LOVE EDITION', '100% FEELINGS', 'СДЕЛАНО С ЛЮБОВЬЮ', 'Посылка с любовью', 'Уровень обожания', 'КОМИТЕТ ПО ОБОЖАНИЮ', 'xoxo']) {
+    assert.equal((html + script).toLowerCase().includes(phrase.toLowerCase()), false, phrase);
+  }
 });
 
 test('audio supports mobile seek range requests and HEAD', async () => {
