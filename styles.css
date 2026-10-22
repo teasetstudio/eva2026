@@ -32,7 +32,7 @@
 .friends-arrow{display:grid;place-items:center;width:44px;height:44px;border:1px solid #d682ac;border-radius:10px;background:linear-gradient(white,#ffd4e8 48%,#f3a8cd 51%,#ffdeed);box-shadow:inset 0 1px white,0 2px 0 #d787b0;color:#a02465;font:23px Arial,sans-serif}
 .friends-arrow:active{translate:0 2px;box-shadow:inset 0 1px white}
 .friends-dots{display:flex;flex-wrap:wrap;justify-content:center;min-width:0}
-.friends-dots button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;background:transparent;border-radius:50%}
+.friends-dots button{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;padding:0;background:transparent;border-radius:50%}
 .friends-dots button>span{width:8px;height:8px;border:1px solid #bf5a90;border-radius:50%;background:#fff4fa;transition:background .2s,transform .2s}
 .friends-dots button[aria-current="true"]>span{background:#e3328c;box-shadow:0 0 0 3px #fff9;transform:scale(1.2)}
 .friends-hint{display:flex;align-items:center;justify-content:center;gap:6px;margin:14px 0 0;font-size:8px;line-height:1.7;color:#a04c78;text-align:center}
